@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ $# -eq 1 ]; then
+	filename_orig=$(basename "$1")
+	filename=`echo $filename_orig | sed 's/\s/_/g'`
+	if [ "$filename" != "$filename_orig" ]; then
+		echo "Menim nazev soubru na $filename"
+		mv "$filename_orig" "$filename"
+	fi
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+	echo "${filename} ${extension}";
+	libreoffice --headless --invisible --convert-to odt $filename.$extension
+	# zde nutno nastavit cestu ke konfiguracnimu souboru
+	w2l -config=/home/tomas/Documents/myScripts/plav.xml $filename.odt
+	vlna $filename.tex
+else
+	echo "Chybný parametr"
+fi
