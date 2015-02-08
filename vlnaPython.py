@@ -69,6 +69,5 @@ if __name__ == '__main__':
         print("       -a symbols where ~ should be afterwards separated by comas x,x,x,x")
         print("       -b symbols where ~ should be before separated by comas x,x,x,x")
         print("       -h print this help")
-        print("       everything without parameter will be outputed afterwards")
         print("       {0} [options -f] [optional args]".format(sys.argv[0]))
         #traceback.print_exc(file=sys.stdout)
