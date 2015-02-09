@@ -55,7 +55,14 @@ if __name__ == '__main__':
             subst = " {}~".format(symbol)
             replaced += len(re.findall(pattern,text))
             text = re.sub(pattern, subst, text)
-            
+
+        # months
+        p = re.compile(r'(\d+\.)\s+(l[e|i][s|d]|čer|[p|s]r[o|p]|úno|břez|dub|kvě|zá|říj)(.*)?([r|n]a|ce|ří|du)\b')
+        #p = re.compile(r'(\d+\.)\s+([a-z])')
+        replaced += len(re.findall(p,text))
+        subst = r"\1~\2\3\4"
+        text = re.sub(p,subst, text)
+    
         f.write(text)
         f.close()
         # output to std what has been done
