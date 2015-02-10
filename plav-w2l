@@ -9,7 +9,7 @@ if [ $# -eq 1 ]; then
 	extension="${filename##*.}"
 	filename="${filename%.*}"
 	echo "${filename} ${extension}";
-	libreoffice --headless --invisible --convert-to odt $filename.$extension
+	libreoffice "-env:UserInstallation=file:///tmp/LibO_Conversion" --headless --invisible --convert-to odt $filename.$extension
 	# zde nutno nastavit cestu ke konfiguracnimu souboru
 	w2l -config=/home/tomas/Documents/myScripts/plav.xml $filename.odt
 	vlna $filename.tex
