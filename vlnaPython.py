@@ -17,7 +17,7 @@ if __name__ == '__main__':
         optlist,args = getopt.getopt(sys.argv[1:],'f:b:a:')        
         src,email="",""
         infront_symbols = ["–"]
-        afterwards_symbols = []#"KkSsVvZzOoUuAIai"
+        afterwards_symbols = ["KkSsVvZzOoUuAIai"]
 
         for a,b in optlist:
             if a == '-f':
