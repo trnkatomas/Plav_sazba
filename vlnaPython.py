@@ -62,6 +62,12 @@ if __name__ == '__main__':
         replaced += len(re.findall(p,text))
         subst = r"\1~\2\3\4"
         text = re.sub(p,subst, text)
+
+        # born * year substitution
+        p = re.compile(r'(\*)(\s)(\d{4})')
+        replaced += len(re.findall(p,text))
+        subst = r"\1\\,\3"
+        text = re.sub(p,subst, text)        
     
         f.write(text)
         f.close()
